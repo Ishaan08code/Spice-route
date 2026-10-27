@@ -1,0 +1,108 @@
+/* ===== Tokens ===== */
+:root {
+  --green: #1f3d2f;
+  --green-2: #2c5441;
+  --saffron: #f2a900;
+  --paper: #f5f1e6;
+  --card: #ffffff;
+  --ink: #1d1f1b;
+  --muted: #6b6f66;
+  --line: #e3dccb;
+  --red: #b3261e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Work Sans', system-ui, sans-serif; line-height: 1.55; }
+h1, h2, h3, .logo { font-family: 'Fraunces', Georgia, serif; line-height: 1.12; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.muted { color: var(--muted); }
+
+/* ===== Navbar ===== */
+.nav { background: var(--green); color: #fff; position: sticky; top: 0; z-index: 20; }
+.nav-in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-size: 1.6rem; font-weight: 800; text-decoration: none; }
+.logo span { color: var(--saffron); }
+.nav nav { display: flex; align-items: center; gap: 22px; }
+.nav nav a { text-decoration: none; opacity: .8; }
+.nav nav a.active { opacity: 1; border-bottom: 2px solid var(--saffron); }
+.cart-btn { background: var(--saffron); color: var(--ink); border: 0; border-radius: 99px; padding: 8px 16px; font-weight: 600; cursor: pointer; }
+
+/* ===== Hero ===== */
+.hero { background: var(--green); color: #fff; padding: 56px 0 64px; }
+.hero-in { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0 0 16px; }
+.hero p { color: #d7e3da; max-width: 30rem; margin-bottom: 24px; }
+.swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.swatches svg { width: 100%; height: auto; background: rgba(255,255,255,.07); border-radius: 14px; padding: 10px; }
+
+/* ===== Buttons and forms ===== */
+.btn { display: inline-block; background: var(--saffron); color: var(--ink); border: 0; border-radius: 10px; padding: 12px 22px; font-weight: 600; text-decoration: none; cursor: pointer; font-size: 1rem; }
+.btn:hover { filter: brightness(1.06); }
+.btn.small { padding: 7px 16px; font-size: .9rem; }
+.btn.block { display: block; width: 100%; text-align: center; margin-top: 14px; }
+input, select, textarea { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; width: 100%; }
+label { display: block; font-weight: 500; margin-bottom: 12px; }
+label input, label select, label textarea { margin-top: 4px; }
+
+/* ===== Shop ===== */
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 32px 0 20px; }
+.toolbar input { width: 220px; }
+.toolbar select { width: 190px; }
+.chips { display: flex; gap: 8px; flex: 1; flex-wrap: wrap; }
+.chip { border: 1px solid var(--line); background: #fff; border-radius: 99px; padding: 7px 16px; cursor: pointer; font: inherit; }
+.chip.on { background: var(--green); color: #fff; border-color: var(--green); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; padding-bottom: 40px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.card-img { display: flex; justify-content: center; padding: 18px 0 8px; }
+.card-body { padding: 14px 16px 18px; }
+.card h3 { margin: 6px 0 2px; font-size: 1.15rem; }
+.card p { margin: 0 0 12px; font-size: .9rem; }
+.tag { font-size: .78rem; background: var(--paper); border-radius: 99px; padding: 2px 10px; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+small { color: var(--muted); font-weight: 400; }
+
+/* ===== Product page ===== */
+.crumb { color: var(--muted); margin: 24px 0; }
+.detail { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-bottom: 40px; }
+.detail-img { border-radius: 16px; display: flex; align-items: center; justify-content: center; padding: 30px; }
+.detail h1 { font-size: 2.4rem; margin: 0 0 4px; }
+.lead { font-size: 1.1rem; }
+.price { font-size: 1.8rem; font-weight: 600; margin: 12px 0; }
+
+/* ===== Cart drawer ===== */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 30; }
+.overlay.show { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(380px, 100%); background: #fff; padding: 20px; transform: translateX(100%); transition: transform .25s; z-index: 40; overflow-y: auto; }
+.drawer.open { transform: none; }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; }
+.drawer-head h2 { margin: 0; }
+.x { background: none; border: 0; font-size: 2rem; cursor: pointer; }
+.line { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.qty { display: flex; align-items: center; gap: 10px; }
+.qty button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+.drawer-foot { margin-top: 20px; }
+
+/* ===== Checkout ===== */
+.checkout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; padding-bottom: 40px; align-items: start; }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.panel h2 { margin-top: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.total { padding-top: 12px; font-size: 1.15rem; }
+.err { color: var(--red); font-weight: 500; }
+.done { text-align: center; padding: 60px 20px; }
+.tick { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: var(--green); color: #fff; font-size: 2rem; display: grid; place-items: center; }
+.ref { display: inline-block; border: 1px dashed var(--green); border-radius: 10px; padding: 10px 24px; font-family: 'Fraunces', serif; font-size: 1.4rem; margin: 10px 0 18px; }
+.foot { background: var(--green); color: #cfe0d4; padding: 22px 0; margin-top: 40px; font-size: .9rem; }
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+  .hero-in, .detail, .checkout { grid-template-columns: 1fr; }
+  .swatches { grid-template-columns: repeat(3, 1fr); }
+  .toolbar input, .toolbar select { width: 100%; }
+}
+@media (max-width: 480px) {
+  .nav nav { gap: 12px; }
+  .two { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card-body { padding: 10px; }
+}
